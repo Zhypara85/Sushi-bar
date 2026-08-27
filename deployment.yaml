@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sushi-bar
+  labels:
+    app: sushi-bar
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sushi-bar
+  template:
+    metadata:
+      labels:
+        app: sushi-bar
+    spec:
+      containers:
+      - name: sushi-bar
+        image: sushi-bar:latest
+        ports:
+        - containerPort: 80
